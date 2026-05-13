@@ -13,14 +13,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-
+import androidx.compose.material3.Card
+import androidx.compose.foundation.Image
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHost
 import androidx.navigation.compose.rememberNavController
@@ -33,22 +37,39 @@ import androidx.navigation.compose.rememberNavController
 data class Recipe(
     val id: Int,
     val title: String,
-    //val image: Int,
+    val image: Int,
 //    val ingredients: List<String>,
 //    val instructions:String
 )
 
 val recipes = listOf(
     Recipe(
-    1,
+        1,
         "How to boil an egg",
+         image = R.drawable.egg,
 
 
     ),
     Recipe(
         2,
         "Village Lentils",
+        image = R.drawable.village_lentils,
         ),
+    Recipe(
+        3,
+        "Village Lentils",
+        image = R.drawable.village_lentils,
+    ),
+    Recipe(
+        4,
+        "Village Lentils",
+        image = R.drawable.village_lentils,
+    ),
+    Recipe(
+        5,
+        "Village Lentils",
+        image = R.drawable.village_lentils,
+    ),
 )
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,18 +121,52 @@ fun App(){
 }
 
 @Composable
+fun RecipeCard(
+    recipe: Recipe,
+    onClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .clickable{onClick()}
+
+    ){
+        Column{
+            Image(
+                painter = painterResource(id = recipe.image),
+                contentDescription = recipe.title,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(180.dp),
+                contentScale = ContentScale.Crop
+            )
+
+            Text(
+                text = recipe.title,
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.padding(16.dp)
+            )
+        }
+    }
+
+
+
+}
+
+@Composable
 fun RecipeListScreen(
     recipes: List<Recipe>,
     onRecipeClick: (Recipe) -> Unit
 ) {
     LazyColumn {
         items(recipes) { recipe ->
-            Text(
-                text = recipe.title,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { onRecipeClick(recipe) }
-                    .padding(16.dp)
+            RecipeCard(
+                recipe = recipe,
+                onClick = {
+                    onRecipeClick(recipe)
+                }
+
             )
         }
     }
