@@ -15,12 +15,17 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -121,6 +126,32 @@ fun App(){
 }
 
 @Composable
+fun MangetoutHeader(){
+    Column{
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(60.dp)
+                .background(Color(0xFF5A8F2D))
+                .statusBarsPadding()
+        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(120.dp)
+        ){
+            Image(
+                painter = painterResource(id=R.drawable.mangetour),
+                contentDescription = "Mangetout Banner",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+        }
+    }
+}
+
+@Composable
 fun RecipeCard(
     recipe: Recipe,
     onClick: () -> Unit
@@ -129,7 +160,7 @@ fun RecipeCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .clickable{onClick()}
+            .clickable { onClick() }
 
     ){
         Column{
@@ -159,15 +190,19 @@ fun RecipeListScreen(
     recipes: List<Recipe>,
     onRecipeClick: (Recipe) -> Unit
 ) {
-    LazyColumn {
-        items(recipes) { recipe ->
-            RecipeCard(
-                recipe = recipe,
-                onClick = {
-                    onRecipeClick(recipe)
-                }
+    Column{
+        MangetoutHeader()
 
-            )
+        LazyColumn {
+            items(recipes) { recipe ->
+                RecipeCard(
+                    recipe = recipe,
+                    onClick = {
+                        onRecipeClick(recipe)
+                    }
+
+                )
+            }
         }
     }
 }
