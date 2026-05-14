@@ -27,6 +27,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -90,7 +91,12 @@ fun App(){
                 val recipe = recipes.find { it.id == recipeId }
 
                 if (recipe != null) {
-                    RecipeDetailsScreen(recipe = recipe)
+                    RecipeDetailsScreen(
+                        recipe = recipe,
+                        onBackClick = {
+                            navController.popBackStack()
+                         }
+                    )
                 }
 
             }
@@ -98,6 +104,7 @@ fun App(){
         }
     }
 }
+
 
 @Composable
 fun MangetoutHeader(){
@@ -187,10 +194,26 @@ fun RecipeListScreen(
 
 
 @Composable
-fun RecipeDetailsScreen(recipe: Recipe) {
+fun RecipeDetailsScreen(
+    recipe: Recipe,
+    onBackClick: ()-> Unit
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     )  {
+        item {
+            TextButton(
+                onClick = { onBackClick() },
+                modifier = Modifier.padding(start = 8.dp, top = 8.dp)
+            ) {
+                Text(
+                    text = "<- Back",
+                    color = Color(0xFF1B5E20),
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
+        }
+
         item {
             Image(
                 painter = painterResource(id=recipe.image),
