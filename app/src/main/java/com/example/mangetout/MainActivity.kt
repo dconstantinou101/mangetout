@@ -147,7 +147,7 @@ fun RecipeCard(
 
             Text(
                 text = recipe.title,
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleSmall,
                 modifier = Modifier.padding(16.dp)
             )
         }
