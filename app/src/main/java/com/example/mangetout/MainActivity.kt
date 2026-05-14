@@ -1,5 +1,6 @@
 package com.example.mangetout
 
+import RecipeData.recipes
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -35,43 +36,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mangetout.ui.theme.MangetoutTheme
 
 
-data class Recipe(
-    val id: Int,
-    val title: String,
-    val image: Int,
-//    val ingredients: List<String>,
-//    val instructions:String
-)
-
-val recipes = listOf(
-    Recipe(
-        1,
-        "How to boil an egg",
-         image = R.drawable.egg,
 
 
-    ),
-    Recipe(
-        2,
-        "Village Lentils",
-        image = R.drawable.village_lentils,
-        ),
-    Recipe(
-        3,
-        "Village Lentils",
-        image = R.drawable.village_lentils,
-    ),
-    Recipe(
-        4,
-        "Village Lentils",
-        image = R.drawable.village_lentils,
-    ),
-    Recipe(
-        5,
-        "Village Lentils",
-        image = R.drawable.village_lentils,
-    ),
-)
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
