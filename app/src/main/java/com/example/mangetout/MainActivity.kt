@@ -20,6 +20,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -91,32 +92,41 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun App(){
     val navController = rememberNavController()
-    NavHost(
-        navController = navController,
-        startDestination = "recipeList"
-    ) {
-        composable("recipeList"){
-            RecipeListScreen(
-                recipes = recipes,
-                onRecipeClick = {recipe ->
-                    navController.navigate("recipeDetail/${recipe.id}")
-                }
-            )
+
+    Scaffold(
+        topBar = {
+            MangetoutHeader()
         }
+    ) { paddingValues ->
 
-        composable("recipeDetail/{recipeId}"){backStackEntry ->
-            val recipeId = backStackEntry.arguments
-                ?.getString("recipeId")
-                ?.toIntOrNull()
+        NavHost(
+            navController = navController,
+            startDestination = "recipeList",
+            modifier = Modifier.padding(paddingValues)
+        ) {
+            composable("recipeList") {
+                RecipeListScreen(
+                    recipes = recipes,
+                    onRecipeClick = { recipe ->
+                        navController.navigate("recipeDetail/${recipe.id}")
+                    }
+                )
+            }
 
-            val recipe = recipes.find{it.id == recipeId}
+            composable("recipeDetail/{recipeId}") { backStackEntry ->
+                val recipeId = backStackEntry.arguments
+                    ?.getString("recipeId")
+                    ?.toIntOrNull()
 
-            if (recipe != null){
-                RecipeDetailsScreen(recipe = recipe)
+                val recipe = recipes.find { it.id == recipeId }
+
+                if (recipe != null) {
+                    RecipeDetailsScreen(recipe = recipe)
+                }
+
             }
 
         }
-
     }
 }
 
@@ -186,7 +196,7 @@ fun RecipeListScreen(
     onRecipeClick: (Recipe) -> Unit
 ) {
     Column{
-        MangetoutHeader()
+
 
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
