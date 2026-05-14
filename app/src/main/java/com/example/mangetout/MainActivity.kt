@@ -39,9 +39,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mangetout.ui.theme.MangetoutTheme
 
 
-
-
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +46,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             MangetoutTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize(),
                 ) {
                     App()
                 }
@@ -64,6 +62,7 @@ fun App(){
     val navController = rememberNavController()
 
     Scaffold(
+        containerColor = Color(0xFFF5F1E7),
         topBar = {
             MangetoutHeader()
         }
