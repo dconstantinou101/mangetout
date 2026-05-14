@@ -112,7 +112,7 @@ fun MangetoutHeader(){
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(60.dp)
+                .height(50.dp)
                 .background(Color(0xFF5A8F2D))
                 .statusBarsPadding()
         )
@@ -202,18 +202,25 @@ fun RecipeDetailsScreen(
         modifier = Modifier.fillMaxSize()
     )  {
         item {
-            TextButton(
-                onClick = { onBackClick() },
-                modifier = Modifier.padding(start = 8.dp, top = 8.dp)
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color(0xFF5A8F2D))
             ) {
-                Text(
-                    text = "<- Back",
-                    color = Color(0xFF1B5E20),
-                    style = MaterialTheme.typography.titleMedium
-                )
+                TextButton(
+                    onClick = { onBackClick() },
+
+
+                    ) {
+                    Text(
+                        text = "Back",
+                        color = Color.White,
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                }
             }
         }
-
         item {
             Image(
                 painter = painterResource(id=recipe.image),
