@@ -8,8 +8,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -41,6 +43,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.mangetout.ui.theme.MangetoutTheme
+import androidx.compose.material.icons.filled.People
+import androidx.compose.material.icons.filled.Restaurant
+import androidx.compose.material.icons.filled.Timer
+import androidx.compose.ui.Alignment
 
 
 class MainActivity : ComponentActivity() {
@@ -257,6 +263,90 @@ fun RecipeDetailsScreen(
                         text = recipe.description,
                         style = MaterialTheme.typography.bodyLarge
                     )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceAround
+                    ) {
+
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = "Prep",
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+
+                            Icon(
+                                imageVector = Icons.Filled.Timer,
+                                contentDescription = "Prep Time",
+                                tint = Color(0xFF1B5E20)
+                            )
+
+                            Spacer(modifier = Modifier.height(4.dp))
+
+                            Text(
+                                text = recipe.prepTime,
+                                style = MaterialTheme.typography.bodySmall
+                            )
+
+
+                        }
+
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = "Cook",
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+
+                            Icon(
+                                imageVector = Icons.Filled.Restaurant,
+                                contentDescription = "Cook Time",
+                                tint = Color(0xFF1B5E20)
+                            )
+
+                            Spacer(modifier = Modifier.height(4.dp))
+
+                            Text(
+                                text = recipe.cookTime,
+                                style = MaterialTheme.typography.bodySmall
+                            )
+
+
+                        }
+
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = "Serves",
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+
+                            Icon(
+                                imageVector = Icons.Filled.People,
+                                contentDescription = "Servings",
+                                tint = Color(0xFF1B5E20)
+                            )
+
+                            Spacer(modifier = Modifier.height(4.dp))
+
+                            Text(
+                                text = recipe.servings.toString(),
+                                style = MaterialTheme.typography.bodySmall
+                            )
+
+
+                        }
+                    }
+
 
                     HorizontalDivider(
                         modifier = Modifier.padding(vertical = 20.dp)
