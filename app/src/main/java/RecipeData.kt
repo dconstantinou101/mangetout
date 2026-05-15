@@ -329,7 +329,7 @@ object RecipeData {
         Recipe(
             id = 15,
             title = "Veggie Pizza",
-            image = R.drawable.village_lentils,
+            image = R.drawable.pizza,
             description = "Homemade pizza topped with fresh vegetables.",
             prepTime = "20 mins",
             cookTime = "15 mins",
@@ -352,7 +352,7 @@ object RecipeData {
         Recipe(
             id = 16,
             title = "Chicken Caesar Salad",
-            image = R.drawable.egg,
+            image = R.drawable.chicken_salad,
             description = "Crisp salad with grilled chicken and parmesan.",
             prepTime = "15 mins",
             cookTime = "10 mins",
@@ -375,7 +375,7 @@ object RecipeData {
         Recipe(
             id = 17,
             title = "Fish Pie",
-            image = R.drawable.village_lentils,
+            image = R.drawable.fish_pie,
             description = "Creamy fish pie topped with mashed potato.",
             prepTime = "20 mins",
             cookTime = "40 mins",
@@ -398,7 +398,7 @@ object RecipeData {
         Recipe(
             id = 18,
             title = "Banana Bread",
-            image = R.drawable.egg,
+            image = R.drawable.banana_bread,
             description = "Soft and moist banana loaf cake.",
             prepTime = "15 mins",
             cookTime = "50 mins",
@@ -421,7 +421,7 @@ object RecipeData {
         Recipe(
             id = 19,
             title = "Thai Green Curry",
-            image = R.drawable.egg,
+            image = R.drawable.thai_curry,
             description = "Fragrant Thai curry with coconut milk.",
             prepTime = "15 mins",
             cookTime = "25 mins",
@@ -444,7 +444,7 @@ object RecipeData {
         Recipe(
             id = 20,
             title = "Apple Crumble",
-            image = R.drawable.village_lentils,
+            image = R.drawable.apple_crumble,
             description = "Classic British dessert with crunchy topping.",
             prepTime = "20 mins",
             cookTime = "35 mins",
