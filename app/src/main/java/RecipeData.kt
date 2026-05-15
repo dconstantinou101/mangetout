@@ -12,6 +12,7 @@ object RecipeData {
             prepTime = "10 mins",
             cookTime = "20 mins",
             servings = 2,
+            isLiked = false,
             ingredients = listOf(
                 "200g pasta",
                 "2 garlic cloves",
@@ -36,6 +37,7 @@ object RecipeData {
             prepTime = "15 mins",
             cookTime = "15 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "2 chicken breasts",
                 "Broccoli",
@@ -60,6 +62,7 @@ object RecipeData {
             prepTime = "10 mins",
             cookTime = "30 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "Tomatoes",
                 "Onion",
@@ -83,6 +86,7 @@ object RecipeData {
             prepTime = "15 mins",
             cookTime = "35 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "Potatoes",
                 "Carrots",
@@ -106,6 +110,7 @@ object RecipeData {
             prepTime = "10 mins",
             cookTime = "15 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "Flour",
                 "Milk",
@@ -129,6 +134,7 @@ object RecipeData {
             prepTime = "15 mins",
             cookTime = "20 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "Minced beef",
                 "Taco shells",
@@ -152,6 +158,7 @@ object RecipeData {
             prepTime = "5 mins",
             cookTime = "5 mins",
             servings = 2,
+            isLiked = false,
             ingredients = listOf(
                 "Bread",
                 "Avocado",
@@ -175,6 +182,7 @@ object RecipeData {
             prepTime = "15 mins",
             cookTime = "30 mins",
             servings = 8,
+            isLiked = false,
             ingredients = listOf(
                 "Dark chocolate",
                 "Butter",
@@ -198,6 +206,7 @@ object RecipeData {
             prepTime = "10 mins",
             cookTime = "0 mins",
             servings = 3,
+            isLiked = false,
             ingredients = listOf(
                 "Tomatoes",
                 "Cucumber",
@@ -221,6 +230,7 @@ object RecipeData {
             prepTime = "10 mins",
             cookTime = "35 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "Arborio rice",
                 "Mushrooms",
@@ -244,6 +254,7 @@ object RecipeData {
             prepTime = "20 mins",
             cookTime = "40 mins",
             servings = 8,
+            isLiked = false,
             ingredients = listOf(
                 "Flour",
                 "Butter",
@@ -267,6 +278,7 @@ object RecipeData {
             prepTime = "15 mins",
             cookTime = "45 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "Spaghetti",
                 "Minced beef",
@@ -290,6 +302,7 @@ object RecipeData {
             prepTime = "5 mins",
             cookTime = "0 mins",
             servings = 2,
+            isLiked = false,
             ingredients = listOf(
                 "Mixed berries",
                 "Banana",
@@ -311,6 +324,7 @@ object RecipeData {
             prepTime = "15 mins",
             cookTime = "1 hr 20 mins",
             servings = 6,
+            isLiked = false,
             ingredients = listOf(
                 "Whole chicken",
                 "Butter",
@@ -334,6 +348,7 @@ object RecipeData {
             prepTime = "20 mins",
             cookTime = "15 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "Pizza dough",
                 "Tomato sauce",
@@ -357,6 +372,7 @@ object RecipeData {
             prepTime = "15 mins",
             cookTime = "10 mins",
             servings = 2,
+            isLiked = false,
             ingredients = listOf(
                 "Chicken breast",
                 "Romaine lettuce",
@@ -380,6 +396,7 @@ object RecipeData {
             prepTime = "20 mins",
             cookTime = "40 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "White fish",
                 "Potatoes",
@@ -403,6 +420,7 @@ object RecipeData {
             prepTime = "15 mins",
             cookTime = "50 mins",
             servings = 8,
+            isLiked = false,
             ingredients = listOf(
                 "Bananas",
                 "Flour",
@@ -426,6 +444,7 @@ object RecipeData {
             prepTime = "15 mins",
             cookTime = "25 mins",
             servings = 4,
+            isLiked = false,
             ingredients = listOf(
                 "Chicken",
                 "Green curry paste",
@@ -449,6 +468,7 @@ object RecipeData {
             prepTime = "20 mins",
             cookTime = "35 mins",
             servings = 6,
+            isLiked = false,
             ingredients = listOf(
                 "Apples",
                 "Flour",

@@ -8,6 +8,7 @@ data class Recipe(
     val prepTime: String,
     val cookTime: String,
     val servings: Int,
+    val isLiked: Boolean,
     val ingredients: List<String>,
     val method: List<String>
 )

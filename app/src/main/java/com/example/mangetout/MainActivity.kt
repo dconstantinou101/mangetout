@@ -25,6 +25,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -47,7 +48,10 @@ import com.example.mangetout.ui.theme.MangetoutTheme
 import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.Restaurant
 import androidx.compose.material.icons.filled.Timer
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.ui.Alignment
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 
 class MainActivity : ComponentActivity() {
@@ -69,8 +73,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun App(){
+fun App(
+    recipeViewModel: RecipeViewModel = viewModel()
+){
     val navController = rememberNavController()
+    val state = recipeViewModel.state
 
     Scaffold(
         containerColor = Color(0xFFF5F1E7),
@@ -86,9 +93,13 @@ fun App(){
         ) {
             composable("recipeList") {
                 RecipeListScreen(
-                    recipes = recipes,
+                    recipes = state.recipes,
                     onRecipeClick = { recipe ->
                         navController.navigate("recipeDetail/${recipe.id}")
+                    },
+                    onLikeClick = { recipe ->
+                        recipeViewModel.toggleLike(recipe.id)
+
                     }
                 )
             }
@@ -98,14 +109,19 @@ fun App(){
                     ?.getString("recipeId")
                     ?.toIntOrNull()
 
-                val recipe = recipes.find { it.id == recipeId }
+                val recipe = recipeId?.let{
+                    recipeViewModel.getRecipeById(it)
+                }
 
                 if (recipe != null) {
                     RecipeDetailsScreen(
                         recipe = recipe,
                         onBackClick = {
                             navController.popBackStack()
-                         }
+                         },
+                        onLikeClick = {
+                            recipeViewModel.toggleLike(recipe.id)
+                        }
                     )
                 }
 
@@ -145,7 +161,8 @@ fun MangetoutHeader(){
 @Composable
 fun RecipeCard(
     recipe: Recipe,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    onLikeClick: () -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -155,31 +172,46 @@ fun RecipeCard(
 
     ){
         Column{
-            Image(
-                painter = painterResource(id = recipe.image),
-                contentDescription = recipe.title,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(180.dp),
-                contentScale = ContentScale.Crop
-            )
+            Box {
+                Image(
+                    painter = painterResource(id = recipe.image),
+                    contentDescription = recipe.title,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(180.dp),
+                    contentScale = ContentScale.Crop
+                )
+
+                IconButton(
+                    onClick = { onLikeClick() },
+                    modifier = Modifier.align(Alignment.TopEnd)
+
+                ) {
+                    Icon(
+                        imageVector =
+                            if (recipe.isLiked) Icons.Filled.Favorite
+                            else Icons.Outlined.FavoriteBorder,
+                        contentDescription = "Like",
+                        tint = if (recipe.isLiked) Color.Red else Color.White
+                    )
+                }
+            }
 
             Text(
                 text = recipe.title,
                 style = MaterialTheme.typography.titleSmall,
                 modifier = Modifier.padding(16.dp)
             )
+
         }
     }
-
-
-
 }
 
 @Composable
 fun RecipeListScreen(
     recipes: List<Recipe>,
-    onRecipeClick: (Recipe) -> Unit
+    onRecipeClick: (Recipe) -> Unit,
+    onLikeClick: (Recipe) -> Unit
 ) {
 
     Column{
@@ -195,6 +227,9 @@ fun RecipeListScreen(
                     recipe = recipe,
                     onClick = {
                         onRecipeClick(recipe)
+                    },
+                    onLikeClick = {
+                        onLikeClick(recipe)
                     }
 
                 )
@@ -209,7 +244,8 @@ fun RecipeListScreen(
 @Composable
 fun RecipeDetailsScreen(
     recipe: Recipe,
-    onBackClick: ()-> Unit
+    onBackClick: ()-> Unit,
+    onLikeClick: () -> Unit
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize()
@@ -235,15 +271,44 @@ fun RecipeDetailsScreen(
             }
         }
         item {
-            Image(
-                painter = painterResource(id=recipe.image),
-                contentDescription = recipe.title,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(260.dp),
-                contentScale = ContentScale.Crop
-            )
+
+            Box {
+
+                Image(
+                    painter = painterResource(id = recipe.image),
+                    contentDescription = recipe.title,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(260.dp),
+                    contentScale = ContentScale.Crop
+                )
+
+                IconButton(
+                    onClick = { onLikeClick() },
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(8.dp)
+                ) {
+
+                    Icon(
+                        imageVector =
+                            if (recipe.isLiked)
+                                Icons.Filled.Favorite
+                            else
+                                Icons.Outlined.FavoriteBorder,
+
+                        contentDescription = "Like recipe",
+
+                        tint =
+                            if (recipe.isLiked)
+                                Color.Red
+                            else
+                                Color.White
+                    )
+                }
+            }
         }
+
         item{
             Card(
                 modifier = Modifier
@@ -259,6 +324,7 @@ fun RecipeDetailsScreen(
                         style = MaterialTheme.typography.headlineMedium,
                         color = Color(0xFF1B5E20)
                     )
+
 
                     Spacer(modifier = Modifier.height(8.dp))
 
