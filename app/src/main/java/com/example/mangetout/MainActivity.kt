@@ -20,14 +20,17 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -176,7 +179,7 @@ fun RecipeListScreen(
 
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.weight(1f)
         ) {
 
             items(recipes) { recipe ->
@@ -208,15 +211,15 @@ fun RecipeDetailsScreen(
                     .fillMaxWidth()
                     .background(Color(0xFF5A8F2D))
             ) {
-                TextButton(
+                IconButton(
                     onClick = { onBackClick() },
 
 
                     ) {
-                    Text(
-                        text = "Back",
-                        color = Color.White,
-                        style = MaterialTheme.typography.titleMedium
+                    Icon(
+                        imageVector = Icons.Filled.ArrowBackIosNew,
+                        contentDescription = "Back",
+                        tint = Color.White
                     )
                 }
             }

@@ -7,7 +7,7 @@ object RecipeData {
         Recipe(
             id = 1,
             title = "Creamy Garlic Pasta",
-            image = R.drawable.egg,
+            image = R.drawable.creamy_garlic_pasta,
             description = "A rich and creamy garlic pasta perfect for weeknight dinners.",
             prepTime = "10 mins",
             cookTime = "20 mins",
@@ -31,7 +31,7 @@ object RecipeData {
         Recipe(
             id = 2,
             title = "Chicken Stir Fry",
-            image = R.drawable.village_lentils,
+            image = R.drawable.chicken_stir_fry,
             description = "Fresh vegetables and chicken tossed in a savoury sauce.",
             prepTime = "15 mins",
             cookTime = "15 mins",
@@ -55,7 +55,7 @@ object RecipeData {
         Recipe(
             id = 3,
             title = "Tomato Basil Soup",
-            image = R.drawable.egg,
+            image = R.drawable.tomato_basil_soup,
             description = "Comforting tomato soup with fresh basil.",
             prepTime = "10 mins",
             cookTime = "30 mins",
@@ -78,7 +78,7 @@ object RecipeData {
         Recipe(
             id = 4,
             title = "Vegetable Curry",
-            image = R.drawable.village_lentils,
+            image = R.drawable.veg_curry,
             description = "A warming curry packed with vegetables and spices.",
             prepTime = "15 mins",
             cookTime = "35 mins",
@@ -101,7 +101,7 @@ object RecipeData {
         Recipe(
             id = 5,
             title = "Classic Pancakes",
-            image = R.drawable.village_lentils,
+            image = R.drawable.pancakes,
             description = "Fluffy homemade pancakes for breakfast.",
             prepTime = "10 mins",
             cookTime = "15 mins",
@@ -124,7 +124,7 @@ object RecipeData {
         Recipe(
             id = 6,
             title = "Beef Tacos",
-            image = R.drawable.egg,
+            image = R.drawable.beef_tacos,
             description = "Mexican-inspired beef tacos with fresh toppings.",
             prepTime = "15 mins",
             cookTime = "20 mins",
@@ -147,7 +147,7 @@ object RecipeData {
         Recipe(
             id = 7,
             title = "Avocado Toast",
-            image = R.drawable.village_lentils,
+            image = R.drawable.avocado_toast,
             description = "Simple and healthy avocado toast.",
             prepTime = "5 mins",
             cookTime = "5 mins",
@@ -170,7 +170,7 @@ object RecipeData {
         Recipe(
             id = 8,
             title = "Chocolate Brownies",
-            image = R.drawable.egg,
+            image = R.drawable.choc_brownies,
             description = "Rich and gooey chocolate brownies.",
             prepTime = "15 mins",
             cookTime = "30 mins",
@@ -193,7 +193,7 @@ object RecipeData {
         Recipe(
             id = 9,
             title = "Greek Salad",
-            image = R.drawable.village_lentils,
+            image = R.drawable.greek_salad,
             description = "Fresh Mediterranean salad with feta cheese.",
             prepTime = "10 mins",
             cookTime = "0 mins",
@@ -216,7 +216,7 @@ object RecipeData {
         Recipe(
             id = 10,
             title = "Mushroom Risotto",
-            image = R.drawable.egg,
+            image = R.drawable.mushroom_risotto,
             description = "Creamy mushroom risotto with parmesan.",
             prepTime = "10 mins",
             cookTime = "35 mins",
@@ -239,7 +239,7 @@ object RecipeData {
         Recipe(
             id = 11,
             title = "Lemon Drizzle Cake",
-            image = R.drawable.village_lentils,
+            image = R.drawable.lemon_drizzle_cake,
             description = "Moist sponge cake with zesty lemon syrup.",
             prepTime = "20 mins",
             cookTime = "40 mins",
@@ -262,7 +262,7 @@ object RecipeData {
         Recipe(
             id = 12,
             title = "Spaghetti Bolognese",
-            image = R.drawable.egg,
+            image = R.drawable.spag_bog,
             description = "Classic Italian pasta dish with rich meat sauce.",
             prepTime = "15 mins",
             cookTime = "45 mins",
@@ -285,7 +285,7 @@ object RecipeData {
         Recipe(
             id = 13,
             title = "Berry Smoothie",
-            image = R.drawable.egg,
+            image = R.drawable.berry_smoothie,
             description = "Refreshing smoothie packed with berries.",
             prepTime = "5 mins",
             cookTime = "0 mins",
@@ -306,7 +306,7 @@ object RecipeData {
         Recipe(
             id = 14,
             title = "Roast Chicken",
-            image = R.drawable.egg,
+            image = R.drawable.roast_chicken,
             description = "Traditional roast chicken with crispy skin.",
             prepTime = "15 mins",
             cookTime = "1 hr 20 mins",
